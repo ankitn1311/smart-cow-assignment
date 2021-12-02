@@ -1,3 +1,8 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .App {
   display: grid;
   min-height: 100vh;
@@ -32,4 +37,18 @@
 .heading-font {
   font-size: 22px;
   font-weight: 500;
+}
+
+.btn {
+  border-radius: 4px;
+  padding: 6px 20px;
+  border: none;
+}
+.btn-success {
+  background-color: #46b13d;
+  color: white;
+}
+.btn-secondary {
+  background-color: #f1f1f1;
+  color: #999999;
 }

@@ -2,8 +2,62 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
+  padding-bottom: 10rem;
+  box-sizing: border-box;
+  width: 100%;
   @media only screen and (min-width: 600px) {
     grid-column: 2/7;
     grid-row: 2/4;
+  }
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &--email-label,
+    &--password-label {
+      padding-bottom: 0.5rem;
+      font-size: 14px;
+      font-weight: 400;
+      display: flex;
+      justify-content: space-between;
+    }
+    &--email,
+    &--password {
+      border: 1px solid #00000019;
+      border-radius: 4px;
+      box-sizing: border-box;
+      padding: 10px 20px;
+      font-size: 15px;
+      outline: none;
+      width: 100%;
+      &:focus {
+        border: 1px solid #5c90f3;
+      }
+    }
+    &--forget {
+      color: #3860ad;
+    }
+    &--submit {
+      width: 100px;
+      font-weight: 600;
+    }
+
+    @media only screen and (min-width: 600px) {
+      width: 400px;
+    }
+  }
+  .form-control {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .Sign__up {
+    font-size: 14px;
+    &--text {
+      color: #3860ad;
+    }
   }
 }
