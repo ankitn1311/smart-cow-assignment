@@ -1,22 +1,35 @@
 .App {
   display: grid;
   min-height: 100vh;
+  box-sizing: border-box;
+  font-family: "Poppins";
   grid-template-columns: 1fr;
   grid-template-rows: 5rem 5rem auto;
+  grid-gap: 0.5rem;
   grid-template-areas:
     "navbar"
     "header"
     "content"
     "side";
+  @media only screen and(min-width: 600px) {
+    grid-template-columns: 6rem repeat(5, 1fr);
+    grid-template-rows: 5rem auto;
+    grid-gap: 2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    grid-template-areas:
+      "navbar header header header header header"
+      "navbar content content content side side "
+      "navbar content content content side side";
+  }
 }
 
-@media only screen and (min-width: 600px) {
-  .App {
-    grid-template-columns: 5rem 2fr 1fr;
-    grid-template-rows: 5rem 1fr 1fr;
-    grid-template-areas:
-      "navbar header header"
-      "navbar content side"
-      "navbar content side";
-  }
+.Border {
+  grid-area: border;
+  border-bottom: 1px solid #00000019;
+}
+
+.heading-font {
+  font-size: 22px;
+  font-weight: 500;
 }

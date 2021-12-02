@@ -1,7 +1,8 @@
 import React from "react";
+import "./SavedVideos.scss";
 
 const SavedVideos = () => {
-  return <div>This is saved videos component</div>;
+  return <div className="SavedVideos">This is saved videos component</div>;
 };
 
 export default SavedVideos;

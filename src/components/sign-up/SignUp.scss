@@ -1,4 +1,9 @@
 .SignUp {
-  grid-column: content/side;
-  grid-row: 2/4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (min-width: 600px) {
+    grid-column: 2/7;
+    grid-row: 2/4;
+  }
 }

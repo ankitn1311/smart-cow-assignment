@@ -1,7 +1,7 @@
 import { SET_CURR_USER } from "../actions/actionTypes";
 
 const initialState = {
-  user: null,
+  user: false,
 };
 
 export const auth = (state = initialState, action) => {
