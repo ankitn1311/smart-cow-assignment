@@ -12,7 +12,7 @@ const reducer = (state, action) => {
       return { ...state, email: action.payload };
     case "PASSWORD_INPUT":
       let strength = "";
-      if (action.payload.length == 0) {
+      if (action.payload.length === 0) {
         strength = "";
       } else if (action.payload.length <= 3) {
         strength = "Weak";
