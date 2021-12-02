@@ -1,0 +1,25 @@
+.Navbar {
+  grid-area: navbar;
+}
+
+.Navbar__main {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Navbar__item {
+  padding: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .Navbar__main {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

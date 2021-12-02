@@ -1,0 +1,22 @@
+.App {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 5rem auto;
+  grid-template-areas:
+    "navbar"
+    "header"
+    "content"
+    "side";
+}
+
+@media only screen and (min-width: 600px) {
+  .App {
+    grid-template-columns: 5rem 2fr 1fr;
+    grid-template-rows: 5rem 1fr 1fr;
+    grid-template-areas:
+      "navbar header header"
+      "navbar content side"
+      "navbar content side";
+  }
+}
