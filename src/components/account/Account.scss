@@ -1,0 +1,32 @@
+.Account {
+  padding: 1rem;
+  width: 100%;
+  @media only screen and (min-width: 600px) {
+    padding: 0;
+    grid-column: 2/7;
+    grid-row: 2/4;
+  }
+  &__tab {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media only screen and (min-width: 600px) {
+      justify-content: flex-start;
+    }
+    &--item {
+      color: #999999;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      @media only screen and (min-width: 600px) {
+        padding-right: 2rem;
+      }
+      &--active {
+        color: #3860ad;
+      }
+    }
+  }
+}

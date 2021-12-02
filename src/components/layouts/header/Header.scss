@@ -1,15 +1,26 @@
 .Header {
-  width: 95%;
+  width: 100%;
   grid-area: header;
   display: flex;
   flex-direction: row;
   align-items: center;
   border-bottom: 1px solid #00000019;
+  @media only screen and (min-width: 600px) {
+    padding-left: 0;
+    width: 100%;
+  }
   &__account {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__saved-videos {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 2rem;
   }
   &__account,
   &__saved-videos,
@@ -28,10 +39,9 @@
   color: #ee6363;
   padding: 6px 20px;
   border-radius: 6px;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
   &:hover {
-    color: #111111;
-    background-color: #ee6363;
+    color: #e93a3a;
   }
 }

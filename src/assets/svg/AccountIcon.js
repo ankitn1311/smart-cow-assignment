@@ -4,14 +4,15 @@ import image from "../images/avatar.png";
 const AccountIcon = () => {
   return (
     <div>
-      <div
+      <img
         style={{
           width: "50px",
           height: "50px",
           borderRadius: "50%",
-          backgroundColor: "darkred",
-        }}></div>
-      <image src={image} />
+          border: "1px solid black",
+        }}
+        src={image}
+      />
     </div>
   );
 };

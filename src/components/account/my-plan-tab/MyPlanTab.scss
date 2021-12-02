@@ -1,0 +1,81 @@
+.MyPlan {
+  display: grid;
+  padding-top: 4rem;
+  grid-template-columns: 1fr;
+  @media only screen and (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  @media only screen and (min-width: 1000px) {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+  &__plan {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 10px;
+    gap: 1rem;
+    &--name {
+      font-size: 22px;
+      font-weight: 600;
+    }
+    &--features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    &--active {
+      background-color: #46b13d;
+      position: static;
+      top: 0;
+      color: white;
+      @media only screen and (min-width: 600px) {
+        position: relative;
+        top: -30px;
+      }
+    }
+    &--feature {
+      padding-bottom: 0.5rem;
+      font-size: 14px;
+    }
+    &--price {
+      font-size: 30px;
+      font-weight: 700;
+    }
+    &--dollar {
+      font-size: 17px;
+      font-weight: 700;
+    }
+    &--icon {
+      padding-right: 0.5rem;
+    }
+    &--button {
+      color: #3860ad;
+      font-size: 16px;
+      background-color: #ebf2ff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 24px;
+      &--active {
+        color: #1c7714;
+        font-size: 18px;
+        background-color: transparent;
+        font-weight: 700;
+      }
+
+      &--active:hover,
+      &--active:active {
+        color: #1c7714 !important;
+        background-color: transparent !important;
+      }
+      &:hover {
+        color: #1e58c4;
+        background-color: #d6e3fa;
+      }
+      &:active {
+        background-color: #ebf2ff;
+      }
+    }
+  }
+}

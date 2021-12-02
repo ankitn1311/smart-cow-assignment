@@ -40,15 +40,30 @@ body {
 }
 
 .btn {
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 6px 20px;
+  font-size: 17px;
+  font-weight: 600;
   border: none;
+  cursor: pointer;
 }
 .btn-success {
   background-color: #46b13d;
   color: white;
+  &:hover {
+    background-color: #2f9825;
+  }
+  &:active {
+    background-color: #5bac54;
+  }
 }
 .btn-secondary {
   background-color: #f1f1f1;
   color: #999999;
+  &:hover {
+    background-color: #f4f4f4;
+  }
+  &:active {
+    background-color: #f0f0f0;
+  }
 }

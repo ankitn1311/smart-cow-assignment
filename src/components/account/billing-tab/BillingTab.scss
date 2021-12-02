@@ -1,0 +1,16 @@
+.Billing {
+  width: 90vw;
+  overflow: auto;
+  padding-top: 2rem;
+  &__table {
+    &--head {
+      color: #999999;
+    }
+    &--data {
+      min-width: 200px;
+      text-align: left;
+      padding-right: 1rem;
+      padding-bottom: 2rem;
+    }
+  }
+}

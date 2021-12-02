@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { SET_CURR_USER } from "../../../actions/actionTypes";
 import "./Header.scss";
 import HomeHeader from "./home-header/HomeHeader";
@@ -9,6 +9,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const location = useLocation();
+  const navigate = useNavigate();
   console.log("location", location);
 
   const showHeader = () => {
@@ -17,7 +18,14 @@ const Header = () => {
         return <HomeHeader />;
       case "/saved-videos":
         return (
-          <div className="Header__saved-videos heading-font">Saved Videos</div>
+          <div className="Header__saved-videos heading-font">
+            <span>Saved Videos</span>
+            <button
+              onClick={() => navigate("/")}
+              className="Header__create-new btn btn-success">
+              Create New
+            </button>
+          </div>
         );
       case "/account":
         return (
