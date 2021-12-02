@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import VideoIcon from "../../../assets/svg/Video";
 import SavedVideosIcon from "../../../assets/svg/SavedVideo";
 import "./Navbar.scss";
-import AccountIcon from "../../../assets/svg/Account";
+import AccountIcon from "../../../assets/svg/AccountIcon";
 import MainIcon from "../../../assets/svg/MainIcon";
+import { useLocation } from "react-router";
+import VideoActiveIcon from "../../../assets/svg/VideoActive";
+import SavedVideoActiveIcon from "../../../assets/svg/SavedVideoActive";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const { user } = useSelector((state) => state.auth);
+  const { pathname } = useLocation();
   return (
     <div className="Navbar">
       <ul className="Navbar__main">
@@ -16,23 +22,32 @@ const Navbar = () => {
               <MainIcon />
             </Link>
           </li>
-          <li className="Navbar__item ">
-            <Link to="/">
-              <VideoIcon />
-            </Link>
-          </li>
-          <li className="Navbar__item">
-            <Link to="/saved-videos">
-              <SavedVideosIcon />
-            </Link>
-          </li>
+          {user && (
+            <>
+              <li className="Navbar__item ">
+                <Link to="/">
+                  {pathname === "/" ? <VideoActiveIcon /> : <VideoIcon />}
+                </Link>
+              </li>
+              <li className="Navbar__item">
+                <Link to="/saved-videos">
+                  {pathname === "/saved-videos" ? (
+                    <SavedVideoActiveIcon />
+                  ) : (
+                    <SavedVideosIcon />
+                  )}
+                </Link>
+              </li>
+            </>
+          )}
         </span>
-
-        <li className="Navbar__item">
-          <Link to="/account">
-            <AccountIcon />
-          </Link>
-        </li>
+        {user && (
+          <li className="Navbar__item">
+            <Link to="/account">
+              <AccountIcon />
+            </Link>
+          </li>
+        )}
       </ul>
     </div>
   );

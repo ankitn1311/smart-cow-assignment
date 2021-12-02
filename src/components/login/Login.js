@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { SET_CURR_USER } from "../../actions/actionTypes";
-
 import "./Login.scss";
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "EMAIL_INPUT":
+      return { ...state, email: action.payload, errorMessage: "" };
+    case "PASSWORD_INPUT":
+      return { ...state, password: action.payload, errorMessage: "" };
+    case "SET_ERROR":
+      return { ...state, errorMessage: action.payload };
+    default:
+      return state;
+  }
+};
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [state, reducerDispatch] = useReducer(reducer, {
+    email: "",
+    password: "",
+    errorMessage: "",
+  });
 
   const redirectToSignUpPage = () => {
     navigate("/sign-up");
@@ -19,8 +37,15 @@ const Login = () => {
         className="Login__form"
         onSubmit={(e) => {
           e.preventDefault();
-          dispatch({ type: SET_CURR_USER, payload: true });
-          navigate("/");
+          if (state.email === "demo@demo.com" && state.password === "demo") {
+            dispatch({ type: SET_CURR_USER, payload: true });
+            navigate("/");
+          } else {
+            reducerDispatch({
+              type: "SET_ERROR",
+              payload: "Email Password doesn't match",
+            });
+          }
         }}>
         <div className="form-control">
           <label className="Login__form--email-label" forHtml="login-email">
@@ -31,7 +56,12 @@ const Login = () => {
             type="email"
             placeholder="Enter your email"
             name="email"
+            value={state.email}
+            required
             id="login-email"
+            onChange={(e) =>
+              reducerDispatch({ type: "EMAIL_INPUT", payload: e.target.value })
+            }
           />
         </div>
         <div className="form-control">
@@ -44,7 +74,14 @@ const Login = () => {
           <input
             className="Login__form--password"
             type="password"
+            required
             placeholder="Enter your password"
+            onChange={(e) =>
+              reducerDispatch({
+                type: "PASSWORD_INPUT",
+                payload: e.target.value,
+              })
+            }
             name="password"
             id="login-password"
           />
@@ -52,6 +89,7 @@ const Login = () => {
         <button className="Login__form--submit btn btn-success" type="submit">
           Login
         </button>
+        <p className="Login__form--error">{state.errorMessage}</p>
         <p className="Sign__up">
           New here?{" "}
           <span class="Sign__up--text" onClick={redirectToSignUpPage}>

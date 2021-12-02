@@ -16,11 +16,13 @@ const Header = () => {
       case "/":
         return <HomeHeader />;
       case "/saved-videos":
-        return <div className="heading-font">Saved Videos</div>;
+        return (
+          <div className="Header__saved-videos heading-font">Saved Videos</div>
+        );
       case "/account":
         return (
-          <div className="Account__header">
-            <p className="heading-font">Account</p>
+          <div className="Header__account">
+            <p className="heading-font">My Account</p>
             {user && (
               <button
                 className="Logout__button"
@@ -33,9 +35,9 @@ const Header = () => {
           </div>
         );
       case "/login":
-        return <p className="heading-font">Sign In</p>;
+        return <p className="heading-font Header__signin">Sign In</p>;
       case "/sign-up":
-        return <p className="heading-font">Sign Up</p>;
+        return <p className="heading-font Header__signup">Sign Up</p>;
       default:
         return <></>;
     }

@@ -1,0 +1,6 @@
+.HomeHeader {
+  padding-left: 2rem;
+  @media only screen and(min-width: 600px) {
+    padding-left: 0;
+  }
+}

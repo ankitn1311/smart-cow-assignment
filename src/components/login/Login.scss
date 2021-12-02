@@ -43,6 +43,9 @@
       width: 100px;
       font-weight: 600;
     }
+    &--error {
+      color: rgb(160, 64, 64);
+    }
 
     @media only screen and (min-width: 600px) {
       width: 400px;

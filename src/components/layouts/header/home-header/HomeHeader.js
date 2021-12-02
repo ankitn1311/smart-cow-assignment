@@ -4,7 +4,7 @@ import "./HomeHeader.scss";
 const HomeHeader = () => {
   return (
     <div className="HomeHeader">
-      <p className="heading-font">Saying Hi to my customers</p>
+      <p className="heading-font Home">Saying Hi to my customers</p>
     </div>
   );
 };
