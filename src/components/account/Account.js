@@ -5,7 +5,7 @@ import MyPlanTab from "./my-plan-tab/MyPlanTab";
 import ProfileTab from "./profile-tab/ProfileTab";
 
 const Account = () => {
-  const [tabs, setTabs] = useState(["Profile", "My Plan", "Billing"]);
+  const tabs = ["Profile", "My Plan", "Billing"];
   const [activeTab, setActiveTab] = useState("Profile");
 
   const renderContent = () => {

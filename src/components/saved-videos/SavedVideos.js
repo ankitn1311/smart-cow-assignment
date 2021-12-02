@@ -8,7 +8,11 @@ const SavedVideos = () => {
     <div className="SavedVideos">
       {cards.map(() => (
         <div className="SavedVideos__card">
-          <img src={girlImg} className="SavedVideos__card--image" />
+          <img
+            src={girlImg}
+            alt="Saying hi"
+            className="SavedVideos__card--image"
+          />
           <div className="SavedVideos__card--title">Saying Hi to users!</div>
           <div className="SavedVideos__card--badges">
             <div className="SavedVideos__card--badge">Email</div>

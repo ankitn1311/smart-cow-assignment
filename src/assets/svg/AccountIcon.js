@@ -11,6 +11,7 @@ const AccountIcon = () => {
           borderRadius: "50%",
           border: "1px solid black",
         }}
+        alt="account icon"
         src={image}
       />
     </div>
