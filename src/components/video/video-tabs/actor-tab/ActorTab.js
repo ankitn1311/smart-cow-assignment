@@ -15,10 +15,6 @@ const ActorTab = () => {
     { name: "May", image },
   ];
 
-  useEffect(() => {
-    console.log({ activeActor });
-  }, [activeActor]);
-
   return (
     <div className="Actor">
       {actors.map((actor) => (

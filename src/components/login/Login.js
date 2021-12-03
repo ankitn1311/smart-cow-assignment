@@ -1,7 +1,7 @@
-import React, { useReducer } from "react";
-import { useDispatch } from "react-redux";
+import React, { useReducer, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { SET_CURR_USER } from "../../actions/actionTypes";
+import { CLEAR_ERROR, LOGOUT, SET_CURR_USER } from "../../actions/actionTypes";
 import "./Login.scss";
 
 const reducer = (state, action) => {
@@ -21,6 +21,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const auth = useSelector((state) => state.auth);
+
   const [state, reducerDispatch] = useReducer(reducer, {
     email: "",
     password: "",
@@ -30,6 +32,20 @@ const Login = () => {
   const redirectToSignUpPage = () => {
     navigate("/sign-up");
   };
+  useEffect(() => {
+    if (auth.user) {
+      navigate("/");
+      dispatch({ type: CLEAR_ERROR });
+    }
+  }, [auth.user]);
+
+  useEffect(() => {
+    reducerDispatch({ type: "SET_ERROR", payload: auth.error });
+  }, [auth.error, auth.user]);
+
+  useEffect(() => {
+    dispatch({ type: CLEAR_ERROR });
+  }, []);
 
   return (
     <div className="Login">
@@ -37,15 +53,10 @@ const Login = () => {
         className="Login__form"
         onSubmit={(e) => {
           e.preventDefault();
-          if (state.email === "demo@demo.com" && state.password === "demo") {
-            dispatch({ type: SET_CURR_USER, payload: true });
-            navigate("/");
-          } else {
-            reducerDispatch({
-              type: "SET_ERROR",
-              payload: "Email Password doesn't match",
-            });
-          }
+          dispatch({
+            type: SET_CURR_USER,
+            payload: { email: state.email, password: state.password },
+          });
         }}>
         <div className="form-control">
           <label className="Login__form--email-label" forHtml="login-email">

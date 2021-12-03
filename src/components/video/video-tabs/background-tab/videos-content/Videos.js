@@ -14,10 +14,6 @@ const Videos = () => {
     { name: "Books", video: backgroundVideo },
   ];
 
-  useEffect(() => {
-    console.log({ activeVideo });
-  }, [activeVideo]);
-
   return (
     <div className="Videos">
       <div className="Videos__upload">

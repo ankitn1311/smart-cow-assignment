@@ -50,7 +50,8 @@
       }
     }
     &--submit {
-      width: 100px;
+      width: fit-content;
+      white-space: nowrap;
       font-weight: 600;
       cursor: pointer;
     }

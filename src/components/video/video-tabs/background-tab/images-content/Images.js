@@ -14,10 +14,6 @@ const Images = () => {
     { name: "Books", image: backgroundImage },
   ];
 
-  useEffect(() => {
-    console.log({ activeImage });
-  }, [activeImage]);
-
   return (
     <div className="Image">
       <div className="Image__upload">

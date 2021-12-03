@@ -1,7 +1,7 @@
-import React, { useReducer } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useReducer } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { SET_CURR_USER } from "../../actions/actionTypes";
+import { CLEAR_ERROR, SET_CURR_USER, SIGN_UP } from "../../actions/actionTypes";
 import "./SignUp.scss";
 
 const reducer = (state, action) => {
@@ -30,25 +30,46 @@ const reducer = (state, action) => {
 const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const auth = useSelector((state) => state.auth);
 
   const [state, reducerDispatch] = useReducer(reducer, {
     name: "",
     email: "",
     password: "",
     pStrength: "",
+    error: "",
   });
 
   const redirectToLoginPage = () => {
     navigate("/login");
   };
+
+  useEffect(() => {
+    if (auth.error) {
+      reducerDispatch({ type: "SET_ERROR", payload: auth.error });
+    }
+  }, [auth.error]);
+
+  useEffect(() => {
+    if (auth.signUpSuccess) {
+      redirectToLoginPage();
+    }
+  }, [auth.signUpSuccess]);
+
   return (
     <div className="SignUp">
       <form
         className="SignUp__form"
         onSubmit={(e) => {
           e.preventDefault();
-          dispatch({ type: SET_CURR_USER, payload: false });
-          navigate("/login");
+          dispatch({
+            type: SIGN_UP,
+            payload: {
+              email: state.email,
+              name: state.name,
+              password: state.password,
+            },
+          });
         }}>
         <div className="form-control">
           <label className="SignUp__form--name-label" forHtml="signup-name">
@@ -114,10 +135,16 @@ const SignUp = () => {
         </button>
         <p className="Sign__up">
           Already user?
-          <span class="Sign__up--text" onClick={redirectToLoginPage}>
+          <span
+            class="Sign__up--text"
+            onClick={() => {
+              dispatch({ type: CLEAR_ERROR });
+              redirectToLoginPage();
+            }}>
             Login
           </span>
         </p>
+        <p className="Login__form--error">{auth.error}</p>
       </form>
     </div>
   );

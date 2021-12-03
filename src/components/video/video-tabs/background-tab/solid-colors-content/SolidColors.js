@@ -12,10 +12,6 @@ const SolidColors = () => {
     { name: "Light Green", value: "#F8FFE5" },
   ];
 
-  useEffect(() => {
-    console.log({ activeSolidColors });
-  }, [activeSolidColors]);
-
   return (
     <div className="SolidColors">
       {images.map((image, index) => (

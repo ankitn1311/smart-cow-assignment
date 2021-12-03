@@ -9,9 +9,6 @@ const BackgroundTab = () => {
 
   const backgrounds = ["Images", "Solid Colors", "Videos"];
 
-  useEffect(() => {
-    console.log({ backgroundType });
-  }, [backgroundType]);
   const renderBackgroundData = () => {
     switch (backgroundType) {
       case "Images":

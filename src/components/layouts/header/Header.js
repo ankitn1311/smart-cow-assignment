@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
-import { SET_CURR_USER } from "../../../actions/actionTypes";
+import { LOGOUT, SET_CURR_USER } from "../../../actions/actionTypes";
 import "./Header.scss";
 import HomeHeader from "./home-header/HomeHeader";
 
@@ -10,7 +10,6 @@ const Header = () => {
   const { user } = useSelector((state) => state.auth);
   const location = useLocation();
   const navigate = useNavigate();
-  console.log("location", location);
 
   const showHeader = () => {
     switch (location.pathname) {
@@ -35,7 +34,7 @@ const Header = () => {
               <button
                 className="Logout__button"
                 onClick={() => {
-                  dispatch({ type: SET_CURR_USER, payload: false });
+                  dispatch({ type: LOGOUT });
                 }}>
                 Logout
               </button>
