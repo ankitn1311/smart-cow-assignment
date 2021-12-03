@@ -1,21 +1,24 @@
 import React, { useState } from "react";
-import BillingTab from "../../account/billing-tab/BillingTab";
-import MyPlanTab from "../../account/my-plan-tab/MyPlanTab";
-import ProfileTab from "../../account/profile-tab/ProfileTab";
+import ActorTab from "./actor-tab/ActorTab";
+import AlignmentTab from "./alignment-tab/AlignmentTab";
+import BackgroundTab from "./background-tab/BackgroundTab";
 import "./VideoTabs.scss";
+import VoiceTab from "./voice-tab/VoiceTab";
 
 const VideoTabs = () => {
-  const tabs = ["Profile", "My Plan", "Billing"];
-  const [activeTab, setActiveTab] = useState("Profile");
+  const tabs = ["Actor", "Voice", "Alignment", "Background"];
+  const [activeTab, setActiveTab] = useState("Actor");
 
   const renderContent = () => {
     switch (activeTab) {
-      case "Profile":
-        return <ProfileTab />;
-      case "My Plan":
-        return <MyPlanTab />;
-      case "Billing":
-        return <BillingTab />;
+      case "Actor":
+        return <ActorTab />;
+      case "Voice":
+        return <VoiceTab />;
+      case "Alignment":
+        return <AlignmentTab />;
+      case "Background":
+        return <BackgroundTab />;
       default:
         return null;
     }
@@ -27,8 +30,8 @@ const VideoTabs = () => {
         {tabs.map((value) => (
           <li
             onClick={() => setActiveTab(value)}
-            className={`VideoTabs--item ${
-              value === activeTab && "VideosTabs__tab--item--active"
+            className={`VideoTabs__tab--item ${
+              value === activeTab && "VideoTabs__tab--item--active"
             }`}>
             {value}
           </li>
