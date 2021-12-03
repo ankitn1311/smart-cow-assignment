@@ -32,7 +32,9 @@ const ProfileTab = () => {
           className="Profile__image--round"
           alt=""
         />
-        <EditIcon />
+        <span className="Profile__image--edit">
+          <EditIcon />
+        </span>
       </div>
 
       <form

@@ -21,8 +21,12 @@
     justify-content: center;
     &--round {
       border-radius: 50%;
+      cursor: pointer;
       object-fit: cover;
       margin-right: 1.5rem;
+    }
+    &--edit {
+      cursor: pointer;
     }
     padding-bottom: 3rem;
   }
