@@ -7,7 +7,7 @@ import VoiceTab from "./voice-tab/VoiceTab";
 
 const VideoTabs = () => {
   const tabs = ["Actor", "Voice", "Alignment", "Background"];
-  const [activeTab, setActiveTab] = useState("Actor");
+  const [activeTab, setActiveTab] = useState("Background");
 
   const renderContent = () => {
     switch (activeTab) {

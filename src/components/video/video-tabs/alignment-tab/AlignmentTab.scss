@@ -30,7 +30,7 @@
     }
     &--active {
       background-color: #ebf2ff;
-      border: 1px solid #3860ad;
+      box-shadow: 0 0 0 1px #3860ad;
     }
     &--active > &--name {
       color: #3860ad;

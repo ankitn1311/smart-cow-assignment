@@ -13,7 +13,7 @@ const HomeHeader = () => {
         <p className="HomeHeader__title--text heading-font">
           Saying Hi to my customers
         </p>
-        <div className="HomeHeader__title--icon">&gt;</div>
+        {/* <div className="HomeHeader__title--icon">&gt;</div> */}
       </div>
       <div className="HomeHeader__buttons">
         <button className="HomeHeader__button--cancel btn btn-secondary">

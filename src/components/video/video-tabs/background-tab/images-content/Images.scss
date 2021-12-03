@@ -1,23 +1,18 @@
-.Background {
+.Image {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   padding-top: 1rem;
   @media only screen and (min-width: 600px) {
     padding: 1rem 2rem 0 0;
+    grid-template-columns: repeat(3, 1fr);
   }
-  &__card {
+  &__card,
+  &__upload {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: 0.5rem 1rem;
     align-items: center;
-    box-shadow: 0 1px 0 0 #e8e8e8;
-    &--header {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
+
     &--image {
       width: 100%;
       height: 150px;
@@ -28,23 +23,27 @@
         height: 100px;
       }
     }
-    &--name,
-    &--icon {
+    &--name {
       font-size: 15px;
-      user-select: none;
-    }
-    &--active {
-      background-color: #ebf2ff;
-      box-shadow: none;
-      border-radius: 5px;
     }
     &--active > img {
       border: 1px solid #3860ad;
     }
 
-    &--active &--name {
+    &--active > &--name {
       color: #3860ad;
       font-weight: 600;
+    }
+  }
+
+  &__upload {
+    justify-content: center;
+    align-items: center;
+    &--image {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
