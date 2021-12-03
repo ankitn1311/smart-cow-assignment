@@ -1,6 +1,26 @@
 .HomeHeader {
-  padding-left: 2rem;
+  padding: 0 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   @media only screen and(min-width: 600px) {
     padding-left: 0;
+    padding: 0;
+  }
+  &__title,
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+  &__buttons {
+    flex-direction: column;
+    gap: 0.3rem;
+    @media only screen and(min-width: 600px) {
+      flex-direction: row;
+      gap: 1rem;
+    }
   }
 }
