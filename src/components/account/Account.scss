@@ -1,10 +1,11 @@
 .Account {
+  box-sizing: border-box;
   padding: 1rem;
   width: 100%;
   @media only screen and (min-width: 600px) {
     padding: 0;
     grid-column: 2/7;
-    grid-row: 2/4;
+    grid-row: 2/3;
   }
   &__tab {
     list-style: none;
@@ -12,7 +13,7 @@
     margin: 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     @media only screen and (min-width: 600px) {
       justify-content: flex-start;
     }

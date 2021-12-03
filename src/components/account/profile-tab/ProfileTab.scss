@@ -73,7 +73,9 @@
       }
     }
     &--submit {
-      width: 140px;
+      white-space: nowrap;
+      width: fit-content;
+      display: inline-block;
       padding-top: 10px;
       padding-bottom: 10px;
       cursor: pointer;

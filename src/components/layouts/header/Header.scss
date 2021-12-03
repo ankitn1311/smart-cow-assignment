@@ -7,16 +7,15 @@
   border-bottom: 1px solid #00000019;
   @media only screen and (min-width: 600px) {
     padding-left: 0;
-    width: 100%;
+    width: 98%;
   }
   &__account {
-    width: 95%;
+    width: 98%;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   &__saved-videos {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,8 +25,10 @@
   &__saved-videos,
   &__signin,
   &__signup {
-    padding-left: 2rem;
+    width: 100%;
+    padding-left: 1rem;
     @media only screen and (min-width: 600px) {
+      width: 98%;
       padding-left: 0;
     }
   }
