@@ -4,6 +4,8 @@ const initialState = {
   user: false,
 };
 
+// Reducer for authentication related data.
+
 export const auth = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {

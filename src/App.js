@@ -9,6 +9,7 @@ import Header from "./components/layouts/header/Header";
 import Login from "./components/login/Login";
 import SignUp from "./components/sign-up/SignUp";
 
+// Component for authentication check
 function RequireAuth({ children }) {
   const auth = useSelector((state) => state.auth);
   let location = useLocation();
@@ -31,6 +32,8 @@ function App() {
               <Video />
             </RequireAuth>
           }></Route>
+        <Route exact path="/login" element={<Login />}></Route>
+        <Route exact path="/sign-up" element={<SignUp />}></Route>
         <Route
           exact
           path="/saved-videos"
@@ -39,9 +42,6 @@ function App() {
               <SavedVideos />
             </RequireAuth>
           }></Route>
-        <Route exact path="/login" element={<Login />}></Route>
-
-        <Route exact path="/sign-up" element={<SignUp />}></Route>
         <Route
           exact
           path="/account"

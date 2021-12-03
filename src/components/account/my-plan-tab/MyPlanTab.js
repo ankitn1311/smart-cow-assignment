@@ -4,6 +4,7 @@ import TickIcon from "../../../assets/svg/TickIcon";
 import "./MyPlanTab.scss";
 
 const MyPlanTab = () => {
+  // Mock data for feature
   const features = [
     "Pellentesque interdum libero et",
     "Pellentesque posuere jdfkdfkdfhd",
@@ -12,6 +13,7 @@ const MyPlanTab = () => {
     "Nullam vitae augue",
   ];
 
+  // Mock data for plans
   const plans = [
     { name: "Free", available: [0, 1, 2], price: 0, active: false },
     { name: "Pro", available: [0, 1, 2, 3], price: 12, active: false },

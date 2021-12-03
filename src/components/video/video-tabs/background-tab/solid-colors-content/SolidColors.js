@@ -5,11 +5,11 @@ const SolidColors = () => {
   const [activeSolidColors, setActiveSolidColors] = useState("Office");
 
   const images = [
-    { name: "Green", value: "#00ff00" },
-    { name: "Red", value: "#ff0000" },
-    { name: "Blue", value: "#0000ff" },
-    { name: "Yellow", value: "#ffff00" },
-    { name: "Light Blue", value: "#00ffff" },
+    { name: "Green", value: "#06D6A0" },
+    { name: "Red", value: "#EF476F" },
+    { name: "Blue", value: "#1B9AAA" },
+    { name: "Yellow", value: "#FFC43D" },
+    { name: "Light Green", value: "#F8FFE5" },
   ];
 
   useEffect(() => {

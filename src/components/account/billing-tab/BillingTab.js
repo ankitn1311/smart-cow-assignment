@@ -3,6 +3,7 @@ import PdfIcon from "../../../assets/svg/PdfIcon";
 import "./BillingTab.scss";
 
 const BillingTab = () => {
+  //Mock Data
   const tableHeaders = ["REFERENCE ID", "DATE", "AMOUNT", "INVOICE"];
   const tableData = [
     { id: "4571222f6rthswfg9981fr55", date: "7/12/2020", amount: 28 },

@@ -8,6 +8,7 @@ const Account = () => {
   const tabs = ["Profile", "My Plan", "Billing"];
   const [activeTab, setActiveTab] = useState("Profile");
 
+  // Funtion to render content according to the current tab value.
   const renderContent = () => {
     switch (activeTab) {
       case "Profile":
