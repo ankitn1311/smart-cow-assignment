@@ -60,7 +60,7 @@
       "side";
     @media only screen and(min-width: 600px) {
       grid-template-columns: 6rem repeat(5, 1fr);
-      grid-template-rows: 5rem auto;
+      grid-template-rows: 5rem 1fr;
       padding-left: 0;
       padding: 0;
       grid-gap: 2rem;
