@@ -1,109 +1,40 @@
-import React, { useReducer } from "react";
-import boyImage from "../../../../assets/images/boy.png";
-import EditIcon from "../../../../assets/svg/EditIcon";
+import React, { useState } from "react";
+import PauseIcon from "../../../../assets/svg/PauseIcon";
+import PlayIcon from "../../../../assets/svg/PlayIcon";
 import "./VoiceTab.scss";
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "FIRSTNAME_INPUT":
-      return { ...state, firstname: action.payload };
-    case "LASTNAME_INPUT":
-      return { ...state, lastname: action.payload };
-    case "EMAIL_INPUT":
-      return { ...state, email: action.payload };
-    default:
-      return state;
-  }
-};
-
 const VoiceTab = () => {
-  const [state, reducerDispatch] = useReducer(reducer, {
-    firstname: "Balamurali",
-    lastname: "A",
-    email: "13bala90@gmail.com",
-  });
-  return (
-    <div className="Profile">
-      <div className="Profile__image">
-        <img
-          src={boyImage}
-          height="100px"
-          width="100px"
-          className="Profile__image--round"
-          alt=""
-        />
-        <EditIcon />
-      </div>
+  const [activeVoice, setActiveVoice] = useState("Asian");
+  const [voices, setVoices] = useState([
+    { name: "Asian", play: false },
+    { name: "British", play: false },
+    { name: "American", play: false },
+  ]);
 
-      <form
-        className="Profile__form"
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}>
-        <div className="Profile__form--fname-control form-control">
-          <label className="Profile__form--fname-label" forHtml="profile-fname">
-            First Name
-          </label>
-          <input
-            className="Profile__form--fname"
-            type="text"
-            placeholder="Enter your firstname"
-            name="firstname"
-            value={state.firstname}
-            required
-            id="profile-fname"
-            onChange={(e) =>
-              reducerDispatch({
-                type: "FIRSTNAME_INPUT",
-                payload: e.target.value,
-              })
-            }
-          />
+  const playAudio = (e, name) => {
+    e.stopPropagation();
+    const changedVoices = voices.map((voice) =>
+      voice.name === name ? { ...voice, play: !voice.play } : voice
+    );
+    setVoices(changedVoices);
+  };
+
+  return (
+    <div className="Voice">
+      {voices.map((voice) => (
+        <div
+          onClick={() => setActiveVoice(voice.name)}
+          className={`Voice__card ${
+            voice.name === activeVoice && "Voice__card--active"
+          }`}>
+          <div
+            className="Voice__card--icon"
+            onClick={(e) => playAudio(e, voice.name)}>
+            {voice.play ? <PauseIcon /> : <PlayIcon />}
+          </div>
+          <div className="Voice__card--name">{voice.name}</div>
         </div>
-        <div className="Profile__form--lname-control form-control">
-          <label className="Profile__form--lname-label" forHtml="profile-lname">
-            Last Name
-          </label>
-          <input
-            className="Profile__form--lname"
-            type="text"
-            placeholder="Enter your lastname"
-            name="lastname"
-            value={state.lastname}
-            required
-            id="profile-lname"
-            onChange={(e) =>
-              reducerDispatch({
-                type: "LASTNAME_INPUT",
-                payload: e.target.value,
-              })
-            }
-          />
-        </div>
-        <div className="Profile__form--email-control form-control">
-          <label className="Profile__form--email-label" forHtml="profile-email">
-            Email
-          </label>
-          <input
-            className="Profile__form--email"
-            type="email"
-            placeholder="Enter your email"
-            name="email"
-            value={state.email}
-            required
-            id="profile-email"
-            onChange={(e) =>
-              reducerDispatch({
-                type: "EMAIL_INPUT",
-                payload: e.target.value,
-              })
-            }
-          />
-        </div>
-        <button className="Profile__form--submit btn btn-success" type="submit">
-          Save Changes
-        </button>
-      </form>
+      ))}
     </div>
   );
 };

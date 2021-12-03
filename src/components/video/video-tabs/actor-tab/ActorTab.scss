@@ -1,21 +1,26 @@
 .Actor {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  padding: 1rem 2rem 0 0;
+  padding-top: 1rem;
   @media only screen and (min-width: 600px) {
+    padding: 1rem 2rem 0 0;
     grid-template-columns: repeat(3, 1fr);
   }
   &__card {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     &--image {
       width: 100%;
-      height: 100px;
+      height: 150px;
       object-fit: cover;
       border-radius: 6px;
       border: 1px solid #e8e8e8;
+      @media only screen and (min-width: 600px) {
+        height: 100px;
+      }
     }
     &--name {
       font-size: 15px;
