@@ -1,7 +1,7 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useCallback, useEffect, useReducer } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { CLEAR_ERROR, SET_CURR_USER, SIGN_UP } from "../../actions/actionTypes";
+import { CLEAR_ERROR, SIGN_UP } from "../../actions/actionTypes";
 import "./SignUp.scss";
 
 const reducer = (state, action) => {
@@ -40,9 +40,9 @@ const SignUp = () => {
     error: "",
   });
 
-  const redirectToLoginPage = () => {
+  const redirectToLoginPage = useCallback(() => {
     navigate("/login");
-  };
+  }, [navigate]);
 
   useEffect(() => {
     if (auth.error) {
@@ -54,7 +54,7 @@ const SignUp = () => {
     if (auth.signUpSuccess) {
       redirectToLoginPage();
     }
-  }, [auth.signUpSuccess]);
+  }, [auth.signUpSuccess, redirectToLoginPage]);
 
   return (
     <div className="SignUp">

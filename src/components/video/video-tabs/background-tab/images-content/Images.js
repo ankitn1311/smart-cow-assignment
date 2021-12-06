@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Images.scss";
 import backgroundImage from "../../../../../assets/images/background.png";
 import UploadIcon from "../../../../../assets/svg/UploadIcon";

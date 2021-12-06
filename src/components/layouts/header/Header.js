@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
-import { LOGOUT, SET_CURR_USER } from "../../../actions/actionTypes";
+import { LOGOUT } from "../../../actions/actionTypes";
 import "./Header.scss";
 import HomeHeader from "./home-header/HomeHeader";
 

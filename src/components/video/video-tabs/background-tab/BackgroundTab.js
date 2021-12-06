@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./BackgroundTab.scss";
 import Images from "./images-content/Images";
 import SolidColors from "./solid-colors-content/SolidColors";

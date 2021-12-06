@@ -2,7 +2,6 @@ import {
   CLEAR_ERROR,
   LOGOUT,
   SET_CURR_USER,
-  SIGN_IN,
   SIGN_UP,
 } from "../actions/actionTypes";
 

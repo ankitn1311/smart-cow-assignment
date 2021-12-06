@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { CLEAR_ERROR, LOGOUT, SET_CURR_USER } from "../../actions/actionTypes";
+import { CLEAR_ERROR, SET_CURR_USER } from "../../actions/actionTypes";
 import "./Login.scss";
 
 const reducer = (state, action) => {
@@ -37,7 +37,7 @@ const Login = () => {
       navigate("/");
       dispatch({ type: CLEAR_ERROR });
     }
-  }, [auth.user]);
+  }, [auth.user, navigate, dispatch]);
 
   useEffect(() => {
     reducerDispatch({ type: "SET_ERROR", payload: auth.error });
@@ -45,7 +45,7 @@ const Login = () => {
 
   useEffect(() => {
     dispatch({ type: CLEAR_ERROR });
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="Login">

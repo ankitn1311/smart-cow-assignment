@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./ActorTab.scss";
 import image from "../../../../assets/images/girl.png";
 
