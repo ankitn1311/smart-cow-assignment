@@ -7,8 +7,8 @@ const BillingTab = () => {
   const tableHeaders = ["REFERENCE ID", "DATE", "AMOUNT", "INVOICE"];
   const tableData = [
     { id: "4571222f6rthswfg9981fr55", date: "7/12/2020", amount: 28 },
-    { id: "4571222f6rthswfg9981fr55", date: "7/12/2020", amount: 36 },
-    { id: "4571222f6rthswfg9981fr55", date: "7/12/2020", amount: 14 },
+    { id: "4571222f6rthswfg9981fr56", date: "7/12/2020", amount: 36 },
+    { id: "4571222f6rthswfg9981fr57", date: "7/12/2020", amount: 14 },
   ];
 
   return (
@@ -16,13 +16,15 @@ const BillingTab = () => {
       <table className="Billing__table">
         <tr className="Billing__table--head">
           {tableHeaders.map((data) => (
-            <th className="Billing__table--data">{data}</th>
+            <th key={data} className="Billing__table--data">
+              {data}
+            </th>
           ))}
         </tr>
 
         {tableData.map((data) => {
           return (
-            <tr className="Billing__table--row">
+            <tr key={data.id} className="Billing__table--row">
               <td className="Billing__table--data">{data.id}</td>
               <td className="Billing__table--data">{data.date}</td>
               <td className="Billing__table--data">{data.amount}</td>

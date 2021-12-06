@@ -25,11 +25,12 @@ const MyPlanTab = () => {
     <div className="MyPlan">
       {plans.map((plan) => (
         <div
+          key={plan.name}
           className={`MyPlan__plan ${plan.active && "MyPlan__plan--active"}`}>
           <div className="MyPlan__plan--name">{plan.name}</div>
           <ul className="MyPlan__plan--features">
             {features.map((feature, index) => (
-              <li className="MyPlan__plan--feature">
+              <li key={index} className="MyPlan__plan--feature">
                 <span className="MyPlan__plan--icon">
                   {index + 2 > plan.available.length ? (
                     <CrossIcon color={`${plan.active ? "white" : "black"}`} />

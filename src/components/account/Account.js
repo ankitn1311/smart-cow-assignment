@@ -27,6 +27,7 @@ const Account = () => {
       <ul className="Account__tab">
         {tabs.map((value) => (
           <li
+            key={value}
             onClick={() => setActiveTab(value)}
             className={`Account__tab--item ${
               value === activeTab && "Account__tab--item--active"

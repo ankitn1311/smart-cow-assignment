@@ -24,6 +24,7 @@ const Images = () => {
       </div>
       {images.map((image) => (
         <div
+          key={image.name}
           onClick={() => setActiveImage(image.name)}
           className={`Image__card ${
             image.name === activeImage && "Image__card--active"

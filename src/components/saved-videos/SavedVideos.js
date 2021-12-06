@@ -6,8 +6,8 @@ const SavedVideos = () => {
   const cards = [0];
   return (
     <div className="SavedVideos">
-      {cards.map(() => (
-        <div className="SavedVideos__card">
+      {cards.map((_, index) => (
+        <div key={index} className="SavedVideos__card">
           <img
             src={girlImg}
             alt="Saying hi"

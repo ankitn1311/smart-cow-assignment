@@ -23,6 +23,7 @@ const VoiceTab = () => {
     <div className="Voice">
       {voices.map((voice) => (
         <div
+          key={voice.name}
           onClick={() => setActiveVoice(voice.name)}
           className={`Voice__card ${
             voice.name === activeVoice && "Voice__card--active"

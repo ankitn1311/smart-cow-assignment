@@ -26,6 +26,7 @@ const BackgroundTab = () => {
     <div className="Background">
       {backgrounds.map((background) => (
         <div
+          key={background}
           onClick={() => setBackgroundType(background)}
           className={`Background__card ${
             background === backgroundType ? "Background__card--active" : ""

@@ -9,6 +9,7 @@ const AlignmentTab = () => {
     <div className="Alignment">
       {alignments.map((alignment) => (
         <div
+          key={alignment}
           onClick={() => setActiveAlignment(alignment)}
           className={`Alignment__card ${
             alignment === activeAlignment && "Alignment__card--active"

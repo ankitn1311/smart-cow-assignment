@@ -17,8 +17,9 @@ const ActorTab = () => {
 
   return (
     <div className="Actor">
-      {actors.map((actor) => (
+      {actors.map((actor, index) => (
         <div
+          key={index}
           onClick={() => setActiveActor(actor.name)}
           className={`Actor__card ${
             actor.name === activeActor && "Actor__card--active"

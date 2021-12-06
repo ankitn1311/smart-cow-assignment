@@ -29,6 +29,7 @@ const VideoTabs = () => {
       <ul className="VideoTabs__tab">
         {tabs.map((value) => (
           <li
+            key={value}
             onClick={() => setActiveTab(value)}
             className={`VideoTabs__tab--item ${
               value === activeTab && "VideoTabs__tab--item--active"
