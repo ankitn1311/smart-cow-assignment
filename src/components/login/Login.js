@@ -31,7 +31,9 @@ const Login = () => {
 
   const redirectToSignUpPage = () => {
     navigate("/sign-up");
+    dispatch({ type: CLEAR_ERROR });
   };
+
   useEffect(() => {
     if (auth.user) {
       navigate("/");
